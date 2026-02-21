@@ -1,11 +1,12 @@
-const http = require('http');
+const express = require('express');
+const postRoutes = require('./routes/posts.routes.js');
 
-const server = http.createServer((req, res) => {
-  res.statusCode = 200;
-  res.setHeader('Content-Type', 'text/plain');
-  res.end('Blogify API is running!\n');
-});
+const app = express();
+const PORT = 3000;
 
-server.listen(3000, () => {
-  console.log('Server running at http://localhost:3000/');
+// Mount the router at the specific prefix
+app.use('/api/v1/posts', postRoutes);
+
+app.listen(PORT, () => {
+  console.log(`Server is running at http://localhost:${PORT}`);
 });
