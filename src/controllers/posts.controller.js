@@ -1,21 +1,31 @@
-// 1. Define the first function
+// 1. Define the getAllPosts function
 const getAllPosts = (req, res) => {
   res.status(200).json({
-    message: "Blogify API is running!",
-    data: [] 
+    success: true,
+    data: [
+      { 
+        id: 1, 
+        title: "Refactoring for Professionals", 
+        content: "Standardized responses are key." 
+      }
+    ]
   });
 };
 
-// 2. Define the new second function
+// 2. Define the getPostById function
 const getPostById = (req, res) => {
   const { postId } = req.params;
   res.status(200).json({
-    message: `Fetching data for post with ID: ${postId}`
+    success: true,
+    data: {
+      id: postId,
+      message: `Successfully retrieved post with ID: ${postId}`
+    }
   });
 };
 
-// 3. Export them both
+// 3. Export both functions at the end
 module.exports = {
-  getAllPosts, // This matches the name above
-  getPostById  // This matches the name above
+  getAllPosts,
+  getPostById
 };
