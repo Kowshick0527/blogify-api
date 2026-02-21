@@ -1,4 +1,6 @@
-// Function to handle fetching all posts
+/**
+ * Controller to handle fetching all posts
+ */
 const getAllPosts = (req, res) => {
   res.status(200).json({
     message: "Blogify API is running!",
@@ -8,7 +10,7 @@ const getAllPosts = (req, res) => {
   });
 };
 
-// Export the function so the router can use it
+// Export the function using an object (allows adding more functions later)
 module.exports = {
   getAllPosts
 };
